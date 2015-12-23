@@ -1,0 +1,52 @@
+<html>
+<meta charset="UTF-8" />
+
+<head>
+	<link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="src/css/top-design.css">
+	<script src="libs/jquery/jquery-2.1.4.js"></script>
+	<script src="libs/bootstrap/bootstrap.min.js"></script>
+	<script src="libs/underscore/underscore.js"></script>
+	<script src="src/js/jq-ud-test.js"></script>
+	<title>jq-ud</title>
+</head>
+
+<body>
+	<h2>jquery underscoreJS 性能検証</h2>
+	<div class="main-div">
+
+		<div class="div-result-table">
+			<p class="bg-info">each 速度検証（DOMなし）</p>
+
+
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>
+						</th>
+						<th class="u-th">
+							underscoreJS
+						</th>
+						<th>
+							jQuery
+						</th>
+				</thead>
+				</tr>
+				<tr>
+					<tbody>
+						<td>
+							time
+						</td>
+						<td id="u-result-1">
+						</td>
+						<td id="j-result-1">
+						</td>
+				</tr>
+				</tbody>
+			</table>
+			<input type="button" value="start" id="each-test" class="btn btn-primary-outline" />
+		</div>
+	</div>
+</body>
+
+</html>
