@@ -123,14 +123,15 @@ $(function () {
 	function hash(password) {
 		password + '1';
 		return password;
-	
+
 	};
-	
-	var i= 0;
+
+	var i = 0;
+
 	function User2(name, passwordHash) {
 		'use strict'
 		console.log(i++);
-		if(!(this instanceof User)) {
+		if (!(this instanceof User)) {
 			//自分自身を呼び出している。
 			return new User(name, passwordHash);
 		}
@@ -148,11 +149,11 @@ $(function () {
 		var self = this instanceof User ? this : Object.create(User.prototype);
 		self.name = name;
 		self.passwordHash = passwordHash;
-		
-		
+
+
 		return self;
 	};
-	
+
 	//インスタンスに設定すると、その関数の複数のコピーがInstance Objectごとに１個作られる。
 	//新しくprototypeにtoStringを追加。
 	User.prototype.toString = function () {
@@ -164,10 +165,10 @@ $(function () {
 		return hash(password) === this.passwordHash;
 	};
 
-	
+
 	$('.test-btn3').click(function () {
 
-//		var u = new User("sflken", "0ef33aexxw023421sf0384p23q");
+		//		var u = new User("sflken", "0ef33aexxw023421sf0384p23q");
 		var u = User("sflken", "0ef33aexxw023421sf0384p23q");
 		console.log(Object.getPrototypeOf(u) === User.prototype);
 		console.log(u.name);
@@ -181,30 +182,45 @@ $(function () {
 		クロージャーに囲まれた変数には直接アクセスできない。
 		アクセスするには、、そのデータへのアクセスを明示的に提供する関数を使用することだ。
 	*/
-	
-	
+
+
 	function Tree(x) {
-		
-		this.value= x;	
+		var self = this instanceof Tree ? this : Object.create(Tree.prototype); 
+		self.value = x;
+		self.childlen = [];
+		return self;
 	}
-		
-	Tree.prototype =  {
-	
-		childlen:[],
-		addChild: function() {
+
+	Tree.prototype = {
+		/*prototypeに変数を持つとインスタンスごとに値を持つのではなく、
+		 すべてのインスタンスが同じ値を共有してしまうので、
+		 Treeオブジェクトにchildren[]を持つようにする。
+		*/
+		//childlen : [],
+		addChild: function (x) {
 			this.childlen.push(x);
 		}
 	};
-	
+
 	$('.test-btn4').click(function () {
 
-//		var u = new User("sflken", "0ef33aexxw023421sf0384p23q");
-		var u = User("sflken", "0ef33aexxw023421sf0384p23q");
-		console.log(Object.getPrototypeOf(u) === User.prototype);
-		console.log(u.name);
-		console.log(u.toString());
-		console.log(u.checkPassword('abcxxx'));
+		//追加したものはすべて、Tree.prototype.childlenに追加される。
+
+		var left = new Tree(2);
+		left.addChild(1);
+		left.addChild(3);
+
+		var right = new Tree(6);
+		right.addChild(5);
+		right.addChild(7);
+
+		var top = new Tree(4);
+		top.addChild(left);
+		top.addChild(right);
+
+		//結果を出力
+		console.log(top.children);
 	});
-	
-	
+
+
 });
