@@ -75,6 +75,7 @@ var
 	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
+		console.log("xxx002");
 		return new jQuery.fn.init( selector, context );
 	},
 
@@ -2741,7 +2742,8 @@ var rootjQuery,
 
 	init = jQuery.fn.init = function( selector, context ) {
 		var match, elem;
-
+		console.log("selector:" + selector);
+		console.log("context:" + context);
 		// HANDLE: $(""), $(null), $(undefined), $(false)
 		if ( !selector ) {
 			return this;
@@ -2807,11 +2809,13 @@ var rootjQuery,
 
 			// HANDLE: $(expr, $(...))
 			} else if ( !context || context.jquery ) {
+				console.log("xxx004" + selector);
 				return ( context || rootjQuery ).find( selector );
 
 			// HANDLE: $(expr, context)
 			// (which is just equivalent to: $(context).find(expr)
 			} else {
+				console.log("xxx005");
 				return this.constructor( context ).find( selector );
 			}
 
@@ -4814,7 +4818,7 @@ if ( !support.focusinBubbles ) {
 }
 
 jQuery.fn.extend({
-
+	//TODO ここだ
 	on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
 		var origFn, type;
 
@@ -5468,12 +5472,15 @@ jQuery.each({
 		for ( ; i <= last; i++ ) {
 			elems = i === last ? this : this.clone( true );
 			jQuery( insert[ i ] )[ original ]( elems );
-
+			
+			console.log("sss:" + name);
+			console.log("sss:" + selector);
+			console.log("sss:" + elems);
 			// Support: QtWebKit
 			// .get() because push.apply(_, arraylike) throws
 			push.apply( ret, elems.get() );
 		}
-
+		console.log("sss:" + ret);
 		return this.pushStack( ret );
 	};
 });

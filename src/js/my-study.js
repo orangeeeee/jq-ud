@@ -185,7 +185,7 @@ $(function () {
 
 
 	function Tree(x) {
-		var self = this instanceof Tree ? this : Object.create(Tree.prototype); 
+		var self = this instanceof Tree ? this : Object.create(Tree.prototype);
 		self.value = x;
 		self.childlen = [];
 		return self;
@@ -222,5 +222,34 @@ $(function () {
 		console.log(top.children);
 	});
 
+
+	//Read CSV
+	function CSVReader(separators) {
+
+		this.separators = separators || [","];
+
+		this.regexp =
+			new RegExp(this.separators.map(function (sep) {
+				return "\\" + sep[0];
+			}).join("|"));
+	};
+
+
+	CSVReader.prototype.read = function (str) {
+		//splitは、Arrayオブジェクトを返す。
+		var lines = str.trim().split(/\n/);
+		/*
+		
+		*/
+		return lines.map(function (line) {
+			return line.split(this.regexp);
+		});
+	};
+
+	$('.test-btn5').click(function () {
+
+		var reader = new CSVReader();
+		console.log(reader.read("a,b,c\nd,e,f\n"));
+	});
 
 });
