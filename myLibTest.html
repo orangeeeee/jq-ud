@@ -1,0 +1,83 @@
+<html>
+<meta charset="UTF-8" />
+
+<head>
+	<script src="./src/js/my-lib-test.js"></script>
+	<script>
+		//function(xyz)のxyzには、(window)で渡したxyzが入る。
+		(function(xyz) {
+			var kQuery = (function() {
+				console.log("inner IIFE");
+			});
+
+
+			//更に応用
+			kQuery.fn = kQuery = {
+
+				testRtnProto: function() {
+
+					return "これこれ";
+				},
+				testRtnProto2: function() {
+					return "execute testLog method";
+				},
+
+				//関数を定義(prototype)
+				testRtnProto3: function() {
+					return "execute testLogProto method";
+				}
+			};
+
+			//ページ読み込み時に呼ばれるので、その後、"kQuery","_"を使用できるようになる。
+			window.kQuery = window._ = kQuery;
+
+		})(window);
+
+
+		$(function() {
+
+
+		});
+
+
+		//即時関数（IIFE）について
+		//最後の"()"の中は、即時関数自体の引数になる。
+		var r = (function(x) {
+			return x * 2;
+		})(10);
+		//console.log(r);
+		// ⇒ 20
+
+
+		function clickTest() {
+
+			console.log(r);
+			// ⇒ 20
+
+			console.log(_.testRtnProto());
+			console.log(_.testRtnProto2());
+			console.log(_.testRtnProto3());
+		};
+
+		
+		/*
+		
+		
+		jQueryのIIFEに'.test-btn'を引数にして呼び出す。
+		そして、jQueryのIFEEの中で定義している.click関数にfunction()を渡して呼び出す。
+		$('.test-btn').click(function () {
+		
+		};
+		
+		
+		*/
+	</script>
+	<title>jq-ud</title>
+</head>
+
+<body>
+	<h2>My Lib Test</h2>
+	<input type="button" value="execute" id="each-test" onclick="clickTest();" />
+</body>
+
+</html>

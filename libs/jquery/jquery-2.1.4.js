@@ -75,7 +75,7 @@ var
 	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
-		console.log("xxx002");
+		
 		return new jQuery.fn.init( selector, context );
 	},
 
@@ -2742,13 +2742,19 @@ var rootjQuery,
 
 	init = jQuery.fn.init = function( selector, context ) {
 		var match, elem;
-		console.log("selector:" + selector);
-		console.log("context:" + context);
+
 		// HANDLE: $(""), $(null), $(undefined), $(false)
 		if ( !selector ) {
 			return this;
 		}
 
+		//TODO my test code
+		if(selector === "\.test-btn") {
+			
+			console.log("read .test-btn");
+		}
+		
+		
 		// Handle HTML strings
 		if ( typeof selector === "string" ) {
 			if ( selector[0] === "<" && selector[ selector.length - 1 ] === ">" && selector.length >= 3 ) {
