@@ -2815,13 +2815,13 @@ var rootjQuery,
 
 			// HANDLE: $(expr, $(...))
 			} else if ( !context || context.jquery ) {
-				console.log("xxx004" + selector);
+				
 				return ( context || rootjQuery ).find( selector );
 
 			// HANDLE: $(expr, context)
 			// (which is just equivalent to: $(context).find(expr)
 			} else {
-				console.log("xxx005");
+				
 				return this.constructor( context ).find( selector );
 			}
 
@@ -7502,7 +7502,7 @@ jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblcl
 
 	// Handle event binding
 	jQuery.fn[ name ] = function( data, fn ) {
-		console.log("click mark 001");
+		console.log("click mark 001" + data + fn);
 		return arguments.length > 0 ?
 			this.on( name, null, data, fn ) :
 			this.trigger( name );

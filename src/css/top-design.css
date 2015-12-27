@@ -3,8 +3,18 @@
     
 }
 .div-result-table {
-    width: 300px;
+    width: 400px;
     margin: 10px 10px 10px 10px;
     
 }
 
+.div-result-table td {
+    text-align: right;  
+}
+.div-result-table th {
+    text-align: center;  
+}
+.col-time {
+	text-align: center !important;
+	width: 50px;
+}

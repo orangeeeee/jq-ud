@@ -247,9 +247,26 @@ $(function () {
 	};
 
 	$('.test-btn5').click(function () {
+		
+		var names = ["Fred","Wilma","Pebbles"];
+		var upper = [];
+		
 
-		var reader = new CSVReader();
-		console.log(reader.read("a,b,c\nd,e,f\n"));
+		
 	});
-
+	
+	/*
+	$('.test-btn6').click(function () {
+		var _this = this;
+		//ES5
+		setTimeout(function() {
+			$(_this).addClass('clicked');
+		},1000);
+		
+		//ES6 (FireFoxのみ対応している。)
+		setTimeout( () => {
+			$(_this).addClass('clicked');
+		},1000);	
+	});
+	*/
 });

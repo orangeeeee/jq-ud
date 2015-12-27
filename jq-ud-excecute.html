@@ -22,7 +22,7 @@
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
-						<th>
+						<th class="col-time">
 						</th>
 						<th class="u-th">
 							underscoreJS
@@ -34,7 +34,7 @@
 				</tr>
 				<tr>
 					<tbody>
-						<td>
+						<td class="col-time">
 							time
 						</td>
 						<td id="u-result-1">
@@ -45,6 +45,40 @@
 				</tbody>
 			</table>
 			<input type="button" value="start" id="each-test" class="btn btn-primary-outline" />
+		</div>
+	</div>
+	<br/>
+	<h2>その他 性能検証</h2>
+	<div class="main-div">
+
+		<div class="div-result-table">
+			<p class="bg-info">大文字変換処理</p>
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th class="col-time">
+						</th>
+						<th class="u-th">
+							ES4 less (for())
+						</th>
+						<th>
+							ES5 and later (map())
+						</th>
+				</thead>
+				</tr>
+				<tr>
+					<tbody>
+						<td class="col-time">
+							time
+						</td>
+						<td id="for-result-1">
+						</td>
+						<td id="map-result-1">
+						</td>
+				</tr>
+				</tbody>
+			</table>
+			<input type="button" value="start" id="upper-test" class="btn btn-primary-outline" />
 		</div>
 	</div>
 </body>

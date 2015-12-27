@@ -8,11 +8,12 @@
 		(function(xyz) {
 			var kQuery = (function() {
 				console.log("inner IIFE");
+				return new kQuery;
 			});
 
 
 			//更に応用
-			kQuery.fn = kQuery = {
+			kQuery.fn = kQuery.prototype = {
 
 				testRtnProto: function() {
 
@@ -31,6 +32,7 @@
 			//ページ読み込み時に呼ばれるので、その後、"kQuery","_"を使用できるようになる。
 			window.kQuery = window._ = kQuery;
 
+			return kQuery;
 		})(window);
 
 
@@ -54,7 +56,7 @@
 			console.log(r);
 			// ⇒ 20
 
-			console.log(_.testRtnProto());
+			console.log(_.prototype.testRtnProto());
 			console.log(_.testRtnProto2());
 			console.log(_.testRtnProto3());
 		};
