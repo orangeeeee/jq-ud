@@ -246,27 +246,114 @@ $(function () {
 		});
 	};
 
-	$('.test-btn5').click(function () {
-		
-		var names = ["Fred","Wilma","Pebbles"];
-		var upper = [];
-		
 
-		
+
+	$('.test-btn5').click(function () {
+
+		//console.log(Object.keys(window));
+		var reader = new CSVReader();
+		console.log(reader.read("a,b,c\nd,e,f\n"));
+
+		var names = ["Fred", "Wilma", "Pebbles"];
+		var upper = [];
+
+		for (var i = 0, n = name.length; i < n; i++) {
+			upper[i] = names[i].toUpperCase();
+		}
+		console.log(upper);
+
 	});
-	
+
+
+	var aIndex = "a".charCodeAt(0);
+
+	function rtest1() {
+
+		var alphabet = "";
+		for (var i = 0; i < 26; i++) {
+			alphabet += String.fromCharCode(aIndex + i);
+		}
+		console.log(alphabet);
+	};
+
+	function rtest2() {
+		var digits = "";
+		for (var i = 0; i < 10; i++) {
+			digits += i;
+		}
+		console.log(digits);
+	};
+
+	function rtest3() {
+
+		var romdom = "";
+		for (var i = 0; i < 8; i++) {
+			romdom += String.fromCharCode(Math.floor(Math.random() * 26) + aIndex);
+		}
+		console.log(digits);
+	};
+
 	/*
-	$('.test-btn6').click(function () {
-		var _this = this;
-		//ES5
-		setTimeout(function() {
-			$(_this).addClass('clicked');
-		},1000);
-		
-		//ES6 (FireFoxのみ対応している。)
-		setTimeout( () => {
-			$(_this).addClass('clicked');
-		},1000);	
-	});
+	
+		callbackの使い方を学ぶのに適切な例。
+	
 	*/
+	function buildString(n, callback) {
+
+		var result = "";
+		for (var i = 0; i < n; i++) {
+			//ここだけ関数を変えたい!!
+			result += callback(i);
+		}
+		return result;
+	};
+
+	function NaiveDirct() {
+
+	};
+
+	$('#test-btn6').click(function () {
+
+		//test1をcallbackを使用した方法に変更。
+		console.log(buildString(26,
+			function (i) {
+				return String.fromCharCode(aIndex + i)
+			}));
+		//test2を変更
+		console.log(buildString(10,
+			function (i) {
+				return i;
+			}));
+		//test3を変更
+		console.log(
+			buildString(8, function () {
+				return String.fromCharCode(Math.floor(Math.random() * 26) + aIndex);
+			}));
+
+		var dict = new NaiveDirct();
+		dict.alice = 34;
+		dict.bob = 24;
+		dict.chris = 62;
+		console.log(Object.keys(dict));
+		console.log(dict);
+	});
+
+	function averageOfArray() {
+
+		for (var i = 0, sum = 0, n = arguments.length; i < n; i++) {
+			sum += arguments[i];
+		}
+		return sum/n;
+	};
+	
+	function average() {
+		return averageOfArray.apply(null,arguments);
+	};
+	$('#test-btn7').click(function () {
+
+		arrayArg = [2, 7, 1, 8, 2, 8, 1, 8];
+
+		console.log(averageOfArray.apply(null,arrayArg));
+		console.log(average(arrayArg));
+	});
 });

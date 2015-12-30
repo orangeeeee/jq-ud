@@ -2751,7 +2751,7 @@ var rootjQuery,
 		//TODO my test code
 		if(selector === "\.test-btn") {
 			
-			console.log("read .test-btn");
+			//console.log("read .test-btn");
 		}
 		
 		
@@ -5479,14 +5479,14 @@ jQuery.each({
 			elems = i === last ? this : this.clone( true );
 			jQuery( insert[ i ] )[ original ]( elems );
 			
-			console.log("sss:" + name);
-			console.log("sss:" + selector);
-			console.log("sss:" + elems);
+			//console.log("sss:" + name);
+			//console.log("sss:" + selector);
+			//console.log("sss:" + elems);
 			// Support: QtWebKit
 			// .get() because push.apply(_, arraylike) throws
 			push.apply( ret, elems.get() );
 		}
-		console.log("sss:" + ret);
+//		console.log("sss:" + ret);
 		return this.pushStack( ret );
 	};
 });
@@ -7502,7 +7502,7 @@ jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblcl
 
 	// Handle event binding
 	jQuery.fn[ name ] = function( data, fn ) {
-		console.log("click mark 001" + data + fn);
+		//console.log("click mark 001" + data + fn);
 		return arguments.length > 0 ?
 			this.on( name, null, data, fn ) :
 			this.trigger( name );
