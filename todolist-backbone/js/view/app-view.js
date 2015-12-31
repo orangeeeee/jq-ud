@@ -4,7 +4,7 @@
 /*global Backbone, jQuery, _, ENTER_KEY */
 var app = app || {};
 (function ($) {
-	//	$(function () {
+
 	'use strict';
 
 	// The Application
@@ -126,12 +126,11 @@ var app = app || {};
 		toggleAllComplete: function () {
 			var completed = this.allCheckbox.checked;
 
-			app.todos.each(function (todo) {
+			app.Todos.each(function (todo) {
 				todo.save({
 					completed: completed
 				});
 			});
 		}
 	});
-	//	});
 })(jQuery);

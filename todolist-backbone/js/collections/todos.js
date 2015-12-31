@@ -1,7 +1,7 @@
 var app = app || {};
 
-//(function () {
-//'use strict';
+(function () {
+'use strict';
 
 //Todo Collection
 //-----------
@@ -51,4 +51,4 @@ var TodoList = Backbone.Collection.extend({
 //CollectionをGlobalに作成
 app.Todos = new TodoList();
 
-//})();
+})();
