@@ -29,7 +29,7 @@ var app = app || {};
 		},
 		initialize: function () {
 			//DOMの要素を取得し、変数に入れる。
-			this.allCheckbox = this.$('#toggle-all');
+			this.allCheckbox = this.$('#toggle-all')[0];
 			this.$input = this.$('#new-todo');
 			this.$footer = this.$('#footer');
 			this.$main = this.$('#main');
@@ -125,10 +125,9 @@ var app = app || {};
 
 		toggleAllComplete: function () {
 			var completed = this.allCheckbox.checked;
-
 			app.Todos.each(function (todo) {
 				todo.save({
-					completed: completed
+					'completed': completed
 				});
 			});
 		}

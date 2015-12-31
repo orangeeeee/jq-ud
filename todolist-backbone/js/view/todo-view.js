@@ -38,7 +38,7 @@ var app = app || {};
 
 		// Re-render the titles of the todo item.
 		render: function () {
-
+			//templeteを使用したくない場合は、elにタグを直で設定。
 			this.$el.html(this.template(this.model.toJSON()));
 			this.toggleVisible();
 			this.$input = this.$('.edit');
@@ -47,7 +47,7 @@ var app = app || {};
 		},
 
 		toggleVisible: function () {
-			console.log('toggleVisible');
+			
 			this.$el.toggleClass('hidden', this.isHidden());
 		},
 		//項目を非表示にするべきか判定する。
