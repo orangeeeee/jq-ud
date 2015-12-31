@@ -1,9 +1,9 @@
 /*global Backbone, jQuery, _, ENTER_KEY, ESC_KEY */
 var app = app || {};
 
-(function () {
-	(function ($) {
-		'use strict';
+//(function ($) {
+//	(function () {
+		//'use strict';
 
 		// Todo Item View
 		// --------------
@@ -80,5 +80,5 @@ var app = app || {};
 				}
 			}
 		});
-	});
-})(jQuery);
+//	});
+//})(jQuery);
