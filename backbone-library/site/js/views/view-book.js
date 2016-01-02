@@ -5,7 +5,7 @@ app.BookView = Backbone.View.extend({
 
 	tagName: 'div',
 	className: 'bookContainer',
-	template: _.template($('#bookTemplate').html),
+	template: _.template($('#bookTemplate').html()),
 
 	render: function () {
 		//this.$elはtagNameで指定したオブジェクト。

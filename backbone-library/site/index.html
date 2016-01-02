@@ -23,17 +23,6 @@
 				<input id="keywords" type="text" />
 				<button id="add">追加</button>
 			</div>
-			<div class="bookContainer">
-				<img src="img/placeholder.png" />
-				<ul>
-					<li>タイトル</li>
-					<li>著者</li>
-					<li>発売日</li>
-					<li>キーワード</li>
-				</ul>
-
-				<button class="delete">削除</button>
-			</div>
 		</form>
 	<script id="bookTemplate" type="text/template">
 	<img src="<%= coverImage %>"/>
@@ -45,7 +34,7 @@
 	</ul>
 
 	<button class="delete">削除</button>
-		</script>
+	</script>
 	<script src="../../libs/jquery/jquery-2.1.4.js"></script>
 	<script src="../../libs/underscore/underscore-min.js"></script>
 	<script src="../../libs/backbone/backbone.js"></script>

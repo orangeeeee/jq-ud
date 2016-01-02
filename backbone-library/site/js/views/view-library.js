@@ -1,10 +1,27 @@
-var app = app || {};
+app = app || {};
 
-//リスト自身の為のView
 app.LibraryView = Backbone.View.extend({
 	el: '#books',
-	
-	initialize:function(initalBooks) {
-		this.collection = new app.Library(initalBooks);	
+
+	initialize: function (initialBooks) {
+		this.collection = new app.Library(initialBooks);
+		this.render();
+	},
+
+	// render library by rendering each book in its collection
+	render: function () {
+		this.collection.each(function (item) {
+			this.renderBook(item);
+		}, this);
+	},
+
+	// render a book by creating a BookView and appending the
+	// element it renders to the library's element
+	//個々の本の描画を行う。
+	renderBook: function (item) {
+		var bookView = new app.BookView({
+			model: item
+		});
+		this.$el.append(bookView.render().el);
 	}
 });
