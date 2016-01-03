@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 // Module dependencies.
 var application_root = __dirname,
@@ -10,7 +10,7 @@ var application_root = __dirname,
 var app = express();
 
 //Connect to database
-mongoose.connect( 'mongodb://localhost/library_database' );
+mongoose.connect( 'mongodb://localhost:27017/library_database' );
 
 //Schemas
 var Keywords = new mongoose.Schema({
@@ -21,7 +21,7 @@ var Book = new mongoose.Schema({
 	title: String,
 	author: String,
 	releaseDate: Date,
-	keywords: [ Keywords ]
+	//keywords: [ Keywords ]
 });
 
 //Models
