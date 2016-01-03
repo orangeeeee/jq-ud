@@ -21,7 +21,7 @@ var Book = new mongoose.Schema({
 	title: String,
 	author: String,
 	releaseDate: Date,
-	//keywords: [ Keywords ]
+	keywords: [ Keywords ]
 });
 
 //Models

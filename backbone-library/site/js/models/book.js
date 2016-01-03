@@ -7,5 +7,7 @@ app.Book = Backbone.Model.extend({
 		author: 'unKnown',
 		releaseDate: 'unKnown',
 		keywords: 'nothing'
-	}
+	},
+	
+	idAttribute: '_id'
 });

@@ -6,11 +6,17 @@ app.LibraryView = Backbone.View.extend({
 
 	initialize: function (initialBooks) {
 		this.collection = new app.Library(initialBooks);
+		//Collectionのfetchは、サーバーからcollectionのデータを取得する為に使用する。
+		//コレクションのurl('url: '/api/books'')に対して、
+		//GET形式のHTTPリクエストを送信し、レスポンスとして、JSON形式の配列を受け取ります。
+		this.collection.fetch();
 		this.render();
 		//新しくmodelが追加された場合に起こるイベント
 		//'click #add': 'addBook'で「追加」ボタンのイベントが起こり
 		//モデルをcollectionにadd後に走る。
 		this.listenTo( this.collection, 'add', this.renderBook );
+		//取得が完了すると呼ばれ、描画を行う。
+		this.listenTo( this.collection, 'reset', this.render );
 	},
 
 	events: {
@@ -25,14 +31,25 @@ app.LibraryView = Backbone.View.extend({
 
 		var formData = {};
 
-		$('#addBook div').children('input').each(function (i, el) {
-
-			if ($(el).val() != '') {
-				console.log('el.id:' + el.id);
-				formData[el.id]	 = $(el).val();
+		$( '#addBook div' ).children( 'input' ).each( function( i, el ) {
+			if( $( el ).val() != "" )
+			{
+				if( el.id === 'keywords' ) {
+					formData[ el.id ] = [];
+					_.each( $( el ).val().split( ' ' ), function( keyword ) {
+						formData[ el.id ].push({ 'keyword': keyword });
+					});
+				} else if( el.id === 'releaseDate' ) {
+					formData[ el.id ] = $( '#releaseDate' ).datepicker( 'getDate' ).getTime();
+				} else {
+					formData[ el.id ] = $( el ).val();
+				}
 			}
 		});
-		this.collection.add(new app.Book(formData));
+		//this.collection.add(new app.Book(formData));
+		//collection.createは、コレクションのURLに対して、
+		//PUT形式のHTTPリクエストを送信する。
+		this.collection.create( formData );
 	},
 	
 	// render library by rendering each book in its collection
