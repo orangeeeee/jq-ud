@@ -1,5 +1,13 @@
 $(function () {
 
+	$('#test-btn8').click(function () {
+
+		var result = findClassInElements("btn","");
+
+		cl("見つけた数:" + result.length);
+	});
+
+
 	var f = function () {
 
 		return "xxxx";
@@ -343,17 +351,17 @@ $(function () {
 		for (var i = 0, sum = 0, n = arguments.length; i < n; i++) {
 			sum += arguments[i];
 		}
-		return sum/n;
+		return sum / n;
 	};
-	
+
 	function average() {
-		return averageOfArray.apply(null,arguments);
+		return averageOfArray.apply(null, arguments);
 	};
 	$('#test-btn7').click(function () {
 
 		arrayArg = [2, 7, 1, 8, 2, 8, 1, 8];
 
-		console.log(averageOfArray.apply(null,arrayArg));
+		console.log(averageOfArray.apply(null, arrayArg));
 		console.log(average(arrayArg));
 	});
 });
