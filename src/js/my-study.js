@@ -1,10 +1,55 @@
+function creep() {
+
+	return this;
+};
+
+var ninja1 = {
+	skulk: creep
+};
+
+
+var ninja2 = {
+	skulk: creep
+};
+
+
+function Person() {}
+Person.prototype.dance = function() {};
+
+function Ninja() {}
+Ninja.prototype = new Person();
+
+var ninja = new Ninja();
+
 $(function () {
+
+	function inCreep() {
+		
+		return this;
+	};
 
 	$('#test-btn8').click(function () {
 
-		var result = findClassInElements("btn","");
+		
+		cl("ninja instanceof Person:" + (ninja instanceof Person));
+		cl("ninja instanceof Object:" + (ninja instanceof Object));
+		cl("ninja.dance instanceof function:" + (typeof ninja.dance == "function"));
+/*
+		cl(creep());
+		cl(inCreep());
 
-		cl("見つけた数:" + result.length);
+		assert(creep() === window, "Creeping in the window");
+
+		var sneak = creep;
+
+		assert(sneak() === window, "Sneak in the window");
+
+
+		assert(ninja1.skulk() === window, "skulk is not window objects");
+		assert(ninja1.skulk() === ninja1, "skulk is ninja1");
+		assert(ninja1.skulk() === ninja2, "skulk is not ninja2");
+*/		
+		
 	});
 
 

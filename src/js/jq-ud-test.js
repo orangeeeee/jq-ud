@@ -1,68 +1,71 @@
 $(function () {
 
-    var array = [];
-    var i = 0;
-    for (i = 0; i < 200000; i++) {
-        array[i] = i;
-    }
+	var array = [];
+	var i = 0;
+	for (i = 0; i < 200000; i++) {
+		array[i] = i;
+	}
 
-    var names = [];
-    var i = 0;
-    for (i = 0; i < 200000; i++) {
-        names[i] = "Fred";
-    }
+	var names = [];
+	var i = 0;
+	for (i = 0; i < 200000; i++) {
+		names[i] = "Fred";
+	}
 
-    $('#each-test').click(function () {
+	$('#each-test').click(function () {
 
-        var diffTime = new DiffTime(new Date());
-		
-        jQuery.each(array, function (index) {
-            //console.log('j:' + value);        
-        });
+		var diffTime = new DiffTime();
 
-        var diff = diffTime.getDiffTime();
-		
-        $('#j-result-1').html(diff + 'ms');
+		cl(diffTime.constructor);
+		cl(diffTime.constructor.prototype);
 
-        /** underscoreJS test */
-        var diffTime_u = new DiffTime(new Date());
-		
-        _.each(array, function (num) {
-            //console.log('u:' + num);
-        });
+		jQuery.each(array, function (index) {
+			//console.log('j:' + value);        
+		});
 
-        var diff_u = diffTime_u.getDiffTime();
+		var diff = diffTime.getDiffTime();
 
-        $('#u-result-1').html(diff_u + 'ms');
+		$('#j-result-1').html(diff + 'ms');
+
+		/** underscoreJS test */
+		var diffTime_u = new DiffTime();
+
+		_.each(array, function (num) {
+			//console.log('u:' + num);
+		});
+
+		var diff_u = diffTime_u.getDiffTime();
+
+		$('#u-result-1').html(diff_u + 'ms');
 
 
-    });
+	});
 
-    $('#upper-test').click(function () {
+	$('#upper-test').click(function () {
 
-        /** ES4 less code */
-        var diffTime = new DiffTime(new Date());
+		/** ES4 less code */
+		var diffTime = new DiffTime();
 
-        var upper = [];
-        for (var i = 0, n = names.length; i < n; i++) {
-            upper[i] = names[i].toUpperCase();
-        }
+		var upper = [];
+		for (var i = 0, n = names.length; i < n; i++) {
+			upper[i] = names[i].toUpperCase();
+		}
 
-        var diff = diffTime.getDiffTime();
-        $('#for-result-1').html(diff + 'ms');
+		var diff = diffTime.getDiffTime();
+		$('#for-result-1').html(diff + 'ms');
 
-        /** ES5 and later code */
-        //var beforeTime_map = new Date();
-        var diffTime_map = new DiffTime(new Date());
-        
-        var upperM = names.map(function (name) {
-            return name.toUpperCase();
-        });
-        //console.log(upperM);
+		/** ES5 and later code */
+		//var beforeTime_map = new Date();
+		var diffTime_map = new DiffTime();
 
-        var diff_map =diffTime_map.getDiffTime();
+		var upperM = names.map(function (name) {
+			return name.toUpperCase();
+		});
+		//console.log(upperM);
 
-        $('#map-result-1').html(diff_map + 'ms');
+		var diff_map = diffTime_map.getDiffTime();
 
-    });
+		$('#map-result-1').html(diff_map + 'ms');
+
+	});
 });

@@ -22,17 +22,22 @@ function DiffTime() {
 	self.st = getNow();
 };
 
+
 DiffTime.prototype = {
 	//st : getNow(), //教育用に残す。
 	getDiffTime: function () {
-		cl(this.st);
+//		cl(this.st);
 		var at = getNow();
 		return at - this.st;
 	}
-
-
 };
 
+/*
+DiffTime.prototype.getDiffTime = function() {
+	var at = getNow();
+	return at - this.st;
+};
+*/
 //
 function assert(value, desc) {
 	var resultsList = document.getElementById("results");
@@ -50,7 +55,7 @@ function assert(value, desc) {
 //classを持っているTagを見つけ出す。
 function findClassInElements(className, type) {
 
-	//後方一致
+	//typeが空の場合は、ワイルドカードですべてのタグを取得する。
 	var elems = document.getElementsByTagName(type || "*");
 
 	//(^|\\s)任意のunicodeの空白文字（space,tab,改行など）かそのまま開始の場合
