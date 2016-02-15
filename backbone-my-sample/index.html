@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<title>Stop Watch</title>
+	<style>
+		body {
+			background: #e0e0e0;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		
+		#timerText {
+			color: #00aaff;
+			font-size: 120px;
+			margin: 40px auto;
+			text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+		}
+
+	</style>
+	<script src="libs/jquery/jquery-2.1.4.min.js"></script>
+	<script src="libs/underscore/underscore-min.js"></script>
+	<script src="libs/backbone/backbone.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/view/app-view.js"></script>
+	<script src="js/model/timer.js"></script>
+</head>
+
+<body>
+	<div id="stopwatchapp">
+		<div id="timerText">0.00</div>
+		<button id="start">START</button>
+		<button id="stop">STOP</button>
+		<button id="reset">RESET</button>
+	</div>
+</body>
+
+</html>
