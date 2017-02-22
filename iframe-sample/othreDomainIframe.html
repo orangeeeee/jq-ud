@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>iframe</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #566573;
+            color: #ffffff;
+            font-family: "corbel", "Candara";
+        }
+        
+        h1 {
+            padding: 15px;
+        }
+        
+        #othre-domain-frame {
+            padding: 15px;
+            width: 750px;
+            height: 400px;
+        }
+        
+        .button-area {
+            margin: 15px;
+        }
+
+    </style>
+    <script src="../libs/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1>iframe Page</h1>
+    <div class="button-area">
+        <button type="button" id="iframeButton" class="btn btn-secondary">Button</button>
+        <button type="button" id="addEventFromParentBtn" class="btn btn-secondary">addEventFromParent</button>
+    </div>
+</body>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script>
+    function childFunc() {
+        console.log("call childFunc");
+    }
+    $(function() {
+
+        $("#iframeButton").on("click", function() {
+            console.log("click iframeButton");
+            window.parent.parentDifinitionFunc();
+            //自分自身についかされたイベントを実行
+            $(window).trigger("parentDifinitionFunc");
+        });
+
+
+
+    });
+
+</script>
+
+</html>

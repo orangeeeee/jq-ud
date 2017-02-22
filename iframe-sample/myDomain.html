@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Domain Page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #4169e1;
+            color: #ffffff;
+            font-family: "corbel", "Candara";
+        }
+        
+        h1 {
+            padding: 15px;
+        }
+        
+        #othre-domain-frame {
+            width: 750px;
+            height: 400px;
+        }
+        
+        .main,
+        .button-area {
+            margin: 15px;
+        }
+
+    </style>
+    <script src="../libs/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1>My Domain Page</h1>
+    <div class="main">
+        <iframe id="othre-domain-frame" src="othreDomainIframe.html">
+        </iframe>
+
+        <div class="button-area">
+            <button type="button" id="parentButton" class="btn btn-secondary">Button</button>
+        </div>
+    </div>
+
+</body>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script>
+    //iframeのwindowを取得。
+    let iframeWindow = document.getElementById('othre-domain-frame');
+
+    function parentDifinitionFunc() {
+        console.log("call parentDifinitionFunc");
+    };
+
+    //iframeのwindowにイベントを追加
+    $(iframeWindow.contentWindow).on("parentDifinitionFunc", parentDifinitionFunc);
+
+    //iframeのbuttonにイベントを追加
+    let buttonId = iframeWindow.contentDocument.getElementById("addEventFromParentBtn");
+    //うまくいっていない。 TODO
+    $(buttonId).on("click", function() {
+        console.log("tetete");
+    });
+
+    $(function() {
+        $("#parentButton").on("click", function() {
+            console.log("click parentButtons");
+            document.getElementById('othre-domain-frame').contentWindow.childFunc();
+
+            $("onmessage").trigger();
+        });
+
+    });
+
+</script>
+
+</html>
