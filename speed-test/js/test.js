@@ -20,19 +20,18 @@ $(function() {
         }
         return count;
     };
-    var func1 = function() {
-        $("#parentButton").val();
-    };
-    var func2 = function() {
-        document.getElementById("parentButton");
-    };
     $("#parentButton").on("click", function() {
 
-        var count = getExecutionCnt(func1);
-        console.log(count);
+        var result = 0;
+        result = getExecutionCnt(function() {
+            $("#parentButton").val();
+        });
+        console.log(result);
 
-        var count = getExecutionCnt(func2);
-        console.log(count);
+        var result = getExecutionCnt(function() {
+            document.getElementById("parentButton");
+        });
+        console.log(result);
         alert("計測終了");
     });
 });
