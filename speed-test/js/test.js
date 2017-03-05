@@ -24,14 +24,26 @@ $(function() {
 
         var result = 0;
         result = getExecutionCnt(function() {
-            $("#parentButton").val();
+            $("#inputEmail3");
         });
-        console.log(result);
+        console.log("jQuery Id Selector:" + result);
 
-        var result = getExecutionCnt(function() {
-            document.getElementById("parentButton");
+        result = getExecutionCnt(function() {
+            document.getElementById("inputEmail3");
         });
-        console.log(result);
+        console.log("getElementById:" + result);
+
+        result = getExecutionCnt(function() {
+            $(".form-control");
+        });
+        console.log("class selector:" + result);
+
+        result = getExecutionCnt(function() {
+            $("input.form-control");
+        });
+        console.log("class and tag selector:" + result);
+
+
         alert("計測終了");
     });
 });
