@@ -6,27 +6,28 @@
     <title>Event Listener Page</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+    <link type="text/css" href="../libs/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
     <style>
         body {
             background-color: #4169e1;
             color: #ffffff;
             font-family: "corbel", "Candara";
         }
-
+        
         h1 {
             padding: 15px;
         }
-
+        
         #othre-domain-frame {
             width: 750px;
             height: 400px;
         }
-
+        
         .main,
         .button-area {
             margin: 15px;
         }
-
+        
         #content {
             height: 400px;
             padding: 15px;
@@ -39,8 +40,6 @@
 <body>
     <h1>Event Listener</h1>
     <div class="main">
-
-
         <div class="button-area">
             <button type="button" id="addHTML" class="btn btn-secondary">Add HTML</button>
             <button type="button" id="openDialog" class="btn btn-secondary">Open Dialog</button>
@@ -71,7 +70,6 @@
     <footer>
         <img src="./img/jquery-ninja-logo.png" width="200px" />
     </footer>
-
 </body>
 <script type="text/template" id="template-rowHTML">
     <tr>
@@ -89,7 +87,16 @@
         </td>
     </tr>
 </script>
+<script type="text/template" id="template-ui-dialog">
+    <div class="entry entry-content">
+        <div class="img-click">
+            <img src="./img/sunshineikezaki-480x360.png">
+        </div>
+    </div>
+</script>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../node_modules/underscore/underscore-min.js"></script>
+<script src="../libs/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <script src="./js/test.js"></script>
+
 </html>
