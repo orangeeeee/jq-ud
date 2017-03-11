@@ -12,11 +12,6 @@ $(function() {
         index++;
     });
 
-    //「Search」ボタン押下時イベント
-    $("body").on("click", "[id^='searchBtnId']", function() {
-        let rowIndex = $(this).attr("data-index");
-        console.log("index:" + rowIndex);
-    });
     // Dialogを開く
     $("#openDialog").on("click", function() {
 
