@@ -35,11 +35,12 @@
     <h1>iframe Page</h1>
     <div class="button-area">
         <button type="button" id="iframeButton" class="btn btn-secondary">Button</button>
-        <button type="button" id="addEventFromParentBtn" class="btn btn-secondary">addEventFromParent</button>
+        <button type="button" id="postMessage" class="btn btn-secondary">addEventFromParent</button>
     </div>
 </body>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script>
+
     function childFunc() {
         console.log("call childFunc");
     }
@@ -49,8 +50,17 @@
             console.log("click iframeButton");
             window.parent.parentDifinitionFunc();
         });
-    });
 
+        $("#postMessage").on("click", function() {
+          var message = {
+              result: "success",
+              code: "A1101",
+              errorCode:"E0001"
+          };
+          window.parent.postMessage(JSON.stringify(message), '*');
+
+        });
+    });
 </script>
 
 </html>

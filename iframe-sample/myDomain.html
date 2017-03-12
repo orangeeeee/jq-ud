@@ -59,6 +59,24 @@
 
     });
 
+    function onMessage(event) {
+
+        var message = JSON.parse(event.data);
+        console.log(message);
+        //成功時
+        if(message.result === "success") {
+          alert("get code:" + message.code);
+        } else {  //エラー時
+          console.log(message.errorCode);
+        }
+    }
+
+    if (window.attachEvent)
+        window.attachEvent('onmessage', onMessage);
+    else if (window.addEventListener)
+        window.addEventListener('message', onMessage, false);
+
+
 </script>
 
 </html>

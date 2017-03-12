@@ -1,16 +1,23 @@
-var message = {
-    width: desiredWidth,
-    height: desiredHeight
-};
-window.parent.postMessage(JSON.stringify(message), '*');
+$("#postMessage").on("click", function() {
+    var message = {
+        result: "success",
+        code: "A1101",
+        errorCode: "E0001"
+    };
+    window.parent.postMessage(JSON.stringify(message), '*');
 
+});
 //And this in your containing page:
-
 function onMessage(event) {
-    if (event.source != theIFrameElement.contentWindow) return;
+
     var message = JSON.parse(event.data);
-    var desiredHeight = message.height;
-    var desiredWidth = message.width;
+    console.log(message);
+    //成功時
+    if (message.result === "success") {
+        alert("get code:" + message.code);
+    } else { //エラー時
+        console.log(message.errorCode);
+    }
 }
 
 if (window.attachEvent)
