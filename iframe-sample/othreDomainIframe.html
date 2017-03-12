@@ -12,17 +12,17 @@
             color: #ffffff;
             font-family: "corbel", "Candara";
         }
-        
+
         h1 {
             padding: 15px;
         }
-        
+
         #othre-domain-frame {
             padding: 15px;
             width: 750px;
             height: 400px;
         }
-        
+
         .button-area {
             margin: 15px;
         }
@@ -48,12 +48,7 @@
         $("#iframeButton").on("click", function() {
             console.log("click iframeButton");
             window.parent.parentDifinitionFunc();
-            //自分自身についかされたイベントを実行
-            $(window).trigger("parentDifinitionFunc");
         });
-
-
-
     });
 
 </script>

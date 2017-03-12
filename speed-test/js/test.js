@@ -18,7 +18,7 @@ $(function() {
             callback();
             count++;
         }
-        return count;
+        return count / 2;
     };
     $("#parentButton").on("click", function() {
 

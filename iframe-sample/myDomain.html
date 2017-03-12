@@ -45,22 +45,9 @@
 </body>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script>
-    //iframeのwindowを取得。
-    let iframeWindow = document.getElementById('othre-domain-frame');
-
     function parentDifinitionFunc() {
         console.log("call parentDifinitionFunc");
     };
-
-    //iframeのwindowにイベントを追加
-    $(iframeWindow.contentWindow).on("parentDifinitionFunc", parentDifinitionFunc);
-
-    //iframeのbuttonにイベントを追加
-    let buttonId = iframeWindow.contentDocument.getElementById("addEventFromParentBtn");
-    //うまくいっていない。 TODO
-    $(buttonId).on("click", function() {
-        console.log("tetete");
-    });
 
     $(function() {
         $("#parentButton").on("click", function() {
